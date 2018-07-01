@@ -1,18 +1,17 @@
-export const ErrorComponent = {
-  name: 'vv-error',
-  inject: ['$validator'],
-  functional: true,
-  props: {
-    for: {
-      type: String,
-      required: true
-    },
-    tag: {
-      type: String,
-      default: 'span'
-    }
+export const ValidationProvider = {
+  data: () => ({
+    name: '',
+
+  }),
+  beforeCreate () {
+    // TODO: Initialize the field and attach it to the validator here.
   },
-  render (createElement, { props, injections }) {
-    return createElement(props.tag, injections.$validator.errors.first(props.for));
+  render () {
+    const field = this.$validator.fields.find({ name: this.name });
+
+    return this.$scopedSlots.default({
+      errors: this.$validator.errors.collect(this.name),
+      flags: field ? field.flags : {}
+    });
   }
 };
