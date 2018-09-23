@@ -7,7 +7,7 @@ import * as Rules from './rules';
 import mapFields from './core/mapFields';
 import Validator from './core/validator';
 import ErrorBag from './core/errorBag';
-import { ErrorComponent } from './components';
+import { ValidationProvider } from './components';
 import { assign } from './core/utils';
 
 const version = '__VERSION__';
@@ -32,7 +32,7 @@ export {
   Validator,
   ErrorBag,
   Rules,
-  ErrorComponent,
+  ValidationProvider,
   version
 };
 
@@ -44,7 +44,7 @@ export default {
   mapFields,
   Validator,
   ErrorBag,
-  ErrorComponent,
+  ValidationProvider,
   Rules,
   version
 };
